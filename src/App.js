@@ -1,6 +1,6 @@
 import './App.css';
 import Counter from './components/counter/Counter';
-import TodoAppComponent from './components/todoapp/TodoAppComponent';
+import TodoAppComponent from './components/todo/TodoAppComponent';
 
 function App() {
   return (
