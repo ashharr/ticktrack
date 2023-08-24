@@ -64,8 +64,8 @@ function ListTodosComponent() {
         <table className="table">
           <thead>
             <tr>
-              <td>id</td>
-              <td>description</td>
+              <td>No.</td>
+              <td>Description</td>
               <td>Is Done?</td>
               <td>Target Date</td>
               <td>Delete</td>
@@ -77,7 +77,12 @@ function ListTodosComponent() {
               <tr key={todo.id}>
                 <td>{todo.id}</td>
                 <td>{todo.description}</td>
-                <td>{todo.done.toString()}</td>
+                <td>
+                  {todo.done.toString() === 'false'
+                    ? <input className="form-check-input" type="checkbox" value="" id="checkboxUnchecked" disabled/>
+                    : <input className="form-check-input" type="checkbox" value="" id="checkboxUnchecked" checked disabled/>
+                    }
+                </td>
                 <td>{todo.targetDate.toString()}</td>
                 <td>
                   <div>

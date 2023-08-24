@@ -10,6 +10,7 @@ function TodoComponent() {
 
   const [description, setDescription] = useState("");
   const [targetDate, setTargetDate] = useState("");
+  const [done, setDone] = useState("");
 
   const authContext = useAuth();
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ function TodoComponent() {
         .then((response) => {
           setDescription(response.data.description);
           setTargetDate(response.data.targetDate);
+          setDone(response.data.done);
         })
         .catch((error) => console.log(error));
     }
@@ -35,20 +37,20 @@ function TodoComponent() {
       username: username,
       description: values.description,
       targetDate: values.targetDate,
+      done: values.done,
     };
-    if(id==-1) {
-        createTodoApi(username, todo)
-        .then(response => {
-            navigate('/todos')
+    if (id == -1) {
+      createTodoApi(username, todo)
+        .then((response) => {
+          navigate("/todos");
         })
-        .catch(error => console.log(error))
-
+        .catch((error) => console.log(error));
     } else {
-        updateTodoApi(username, id, todo)
-        .then(response => {
-            navigate('/todos')
+      updateTodoApi(username, id, todo)
+        .then((response) => {
+          navigate("/todos");
         })
-        .catch(error => console.log(error))
+        .catch((error) => console.log(error));
     }
   }
 
@@ -62,7 +64,11 @@ function TodoComponent() {
       errors.description = "Enter atleast 5 characters";
     }
 
-    if (values.targetDate == null || values.targetDate=='' || !moment(values.targetDate).isValid()) {
+    if (
+      values.targetDate == null ||
+      values.targetDate == "" ||
+      !moment(values.targetDate).isValid()
+    ) {
       errors.targetDate = "Enter a target date";
     }
 
@@ -70,12 +76,16 @@ function TodoComponent() {
     return errors;
   }
 
+  const handleChange = () => {
+    setDone(!done);
+  };
+
   return (
     <div className="container">
       <h1>Enter Todo Details </h1>
       <div>
         <Formik
-          initialValues={{ description, targetDate }}
+          initialValues={{ description, targetDate, done }}
           enableReinitialize={true}
           onSubmit={onSubmit}
           validate={validate}
@@ -95,20 +105,43 @@ function TodoComponent() {
                 component="div"
                 className="alert alert-warning"
               />
+              <div className="w-50 mx-auto">
+                <fieldset className="form-group">
+                  <label className="input-group-text form-check-label">
+                    Description   
+                    <Field
+                      type="text"
+                      className="form-control"
+                      name="description"
+                    />
+                  </label>
+                </fieldset>
+                <fieldset className="form-group">
+                  <label className="input-group-text form-check-label">
+                    Target Date   
+                    <Field
+                      type="date"
+                      className="form-control"
+                      name="targetDate"
+                    />
+                  </label>
+                </fieldset>
 
-              <fieldset className="form-group">
-                <label>Description</label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  name="description"
-                />
-              </fieldset>
-              <fieldset className="form-group">
-                <label>Target Date</label>
-                <Field type="date" className="form-control" name="targetDate" />
-              </fieldset>
-              <div>
+                <fieldset className="cform-group">
+                  <label className="form-check-label input-group-text" for="flexCheckDefault">
+                    {" "}
+                    Task Completed?    <input
+                    className="form-check-input"
+                    id="flexCheckDefault"
+                    type="checkbox"
+                    checked={done}
+                    onChange={handleChange}
+                  />
+                  </label>
+                  {/* <Field type="checkbox" className="form-control" name="done" /> */}
+                  
+                </fieldset>
+                <div></div>
                 <button className="btn btn-success m-5" type="submit">
                   Save
                 </button>
