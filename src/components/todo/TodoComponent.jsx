@@ -81,8 +81,8 @@ function TodoComponent() {
   };
 
   return (
-    <div className="container">
-      <h1>Enter Todo Details </h1>
+    <div className="container rounded-3">
+      <h1 className="fs-3 pt-3">Enter Todo Details </h1>
       <div>
         <Formik
           initialValues={{ description, targetDate, done }}
@@ -141,8 +141,7 @@ function TodoComponent() {
                   {/* <Field type="checkbox" className="form-control" name="done" /> */}
                   
                 </fieldset>
-                <div></div>
-                <button className="btn btn-success m-5" type="submit">
+                <button className="btn btn-success my-3" type="submit">
                   Save
                 </button>
               </div>

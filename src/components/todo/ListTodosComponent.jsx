@@ -6,6 +6,7 @@ import {
 } from "./api/TodoApiService";
 import { useAuth } from "./security/AuthContext";
 import { useNavigate } from "react-router-dom";
+import "./ListTodos.css";
 
 function ListTodosComponent() {
   //   const today = new Date();
@@ -56,12 +57,23 @@ function ListTodosComponent() {
   }
 
   return (
-    <div className="container">
-      <h1>Things You Want To Do!</h1>
+    <div className="container pb-3 rounded-3">
+      {/* <br /> */}
+      <div className="pt-3">
+        <div className="row ma-5  pe-4">
+          <h1 className="col fs-3 mb-3">Things You Want To Do!</h1>
+          <div
+            className="col col-lg-2 btn btn-success btn-lg ma-5 mb-3"
+            onClick={addNewTodo}
+          >
+            Add New Todo
+          </div>
+        </div>
+      </div>
       {message && <div className="alert alert-warning">{message}</div>}
 
       <div>
-        <table className="table">
+        <table className="table rounded">
           <thead>
             <tr>
               <td>No.</td>
@@ -78,10 +90,24 @@ function ListTodosComponent() {
                 <td>{todo.id}</td>
                 <td>{todo.description}</td>
                 <td>
-                  {todo.done.toString() === 'false'
-                    ? <input className="form-check-input" type="checkbox" value="" id="checkboxUnchecked" disabled/>
-                    : <input className="form-check-input" type="checkbox" value="" id="checkboxUnchecked" checked disabled/>
-                    }
+                  {todo.done.toString() === "false" ? (
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="checkboxUnchecked"
+                      disabled
+                    />
+                  ) : (
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="checkboxUnchecked"
+                      checked
+                      disabled
+                    />
+                  )}
                 </td>
                 <td>{todo.targetDate.toString()}</td>
                 <td>
@@ -110,10 +136,6 @@ function ListTodosComponent() {
             ))}
           </tbody>
         </table>
-      </div>
-
-      <div className="btn btn-success m-5" onClick={addNewTodo}>
-        Add New Todo
       </div>
     </div>
   );
