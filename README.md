@@ -43,19 +43,19 @@ Once the application is up and running, you can access it by navigating to **`ht
 
 After you enter the credentials you would see the Home page.
 
-![Sign In](sign-in.png)
+![Sign In](/readme-content/sign-in.png)
 
 ### ToDo Home Page
 
-![Untitled](home-page.png)
+![Untitled](/readme-content/home-page.png)
 
 From here you can view your todos, update or logout and come to see later. All your todos are saved in the database.
 
-![Untitled](todos.png)
+![Untitled](/readme-content/todos.png)
 
 Update/Add todo page –
 
-![Untitled](add-todo.png)
+![Untitled](/readme-content/add-todo.png)
 
 ## **Contributing**
 
