@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Ticktrack — A Minimalist ToDo App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This documentation provides a comprehensive guide for setting up and using the Minimalist Todo app built using the Spring framework, Spring Boot, Hibernate, and Spring Security.
 
-## Available Scripts
+## **Table of Contents**
 
-In the project directory, you can run:
+1. **Introduction**
+2. **Installation**
+3. **Configuration**
+4. **Usage**
+5. **Contributing**
+6. **License**
 
-### `npm start`
+## **Introduction**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The Minimalist Todo app is a simple yet powerful task management application built using the Spring framework. It allows users to create, update, and manage their tasks effectively. The application utilizes Spring Boot to simplify the setup and configuration process, Hibernate for data persistence, and Spring Security for authentication and authorization.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **Installation**
 
-### `npm test`
+To install the Minimalist Todo app, follow the steps below:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Ensure that you have Java Development Kit (JDK) version 8 or above installed on your system.
+2. Clone the repository: **`git clone <repository-url>`**
+3. Navigate to the project directory: **`cd minimalist-todo-app`**
+4. Build the project using Maven: **`mvn clean install`**
 
-### `npm run build`
+## **Configuration**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Before running the application, you need to configure the following:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Database Configuration**: Open the **`application.properties`** file located in the **`src/main/resources/application.properties`** directory. Update the database connection properties to match your local database configuration. I am making use of the MySQL database for this project. You can use that or in memory database such as H2. 
+2. **Security Configuration**: Open the **`SecurityConfig.java`** file located in the **`src/main/java/com/mytodoapp/springboot/mytodoapp/security/SpringSecurityConfiguration.java`** directory. Customize the security configurations such as authentication providers, access control rules, etc., according to your requirements.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## **Usage**
 
-### `npm run eject`
+To run the Minimalist Todo app, execute the following command:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+java -jar target/minimalist-todo-app.jar
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Once the application is up and running, you can access it by navigating to **`http://localhost:8089`** in your web browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+After you enter the credentials you would see the Home page.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Sign In](sign-in.png)
 
-## Learn More
+### ToDo Home Page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Untitled](home-page.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+From here you can view your todos, update or logout and come to see later. All your todos are saved in the database.
 
-### Code Splitting
+![Untitled](todos.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Update/Add todo page –
 
-### Analyzing the Bundle Size
+![Untitled](add-todo.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## **Contributing**
 
-### Making a Progressive Web App
+Contributions to the Minimalist Todo app are always welcome. If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request on the project's GitHub repository.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## **License**
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The Minimalist Todo app is open-source software released under the [**MIT License**](https://chat.openai.com/LICENSE). You are free to modify and distribute the application as per the terms of the license.
